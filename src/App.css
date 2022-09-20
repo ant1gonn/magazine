@@ -86,3 +86,63 @@
   height: 1500px;
   width: 1000px;
 }
+
+.order {
+  max-width: 662px;
+  max-height: auto;
+  /* 232px */
+}
+
+.order__prices {
+  margin-top: 35px;
+}
+
+.order-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order__prices-inner {
+  background-color: #e5e5e5;
+  padding: 10px;
+  border-radius: 10px;
+  width: 292px;
+  height: auto;
+}
+
+.my_btn {
+  text-align: center;
+  border: none;
+  color: white;
+  background-color: #2967ff;
+  width: 250px;
+  height: 50px;
+  border-radius: 50px;
+  margin-top: 15px;
+}
+
+.order__form {
+  margin-top: 30px;
+}
+
+.order__form_inputs {
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.order-inner span {
+  color: #727280;
+}
+
+.header_inp {
+  border: none;
+  outline: none;
+  width: 260px;
+  height: 29px;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+}

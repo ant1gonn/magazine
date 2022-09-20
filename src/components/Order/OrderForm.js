@@ -2,14 +2,18 @@ import React from "react";
 
 export const OrderForm = () => {
   return (
-    <div>
+    <div claaaName="order__form">
       <div>
         Имя
-        <input />
+        <div>
+          <input className="order__form_inputs" />
+        </div>
       </div>
       <div>
         Телефон
-        <input />
+        <div>
+          <input className="order__form_inputs" />
+        </div>
       </div>
     </div>
   );

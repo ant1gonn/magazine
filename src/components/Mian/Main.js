@@ -2,7 +2,10 @@ import React from "react";
 import { Menu } from "./Menu";
 import { useDispatch, useSelector } from "react-redux";
 import { MainProduct } from "./MainProduct";
-import { fetchProducts } from "./../../redux_toolkit/main_slice";
+import {
+  fetchProducts,
+  addNewProducts,
+} from "./../../redux_toolkit/main_slice";
 import { addBasketProduct } from "../../redux_toolkit/basket_slice";
 
 export const Main = ({ filterName }) => {
@@ -15,6 +18,10 @@ export const Main = ({ filterName }) => {
 
   const addBasket = (obj) => {
     dispatch(addBasketProduct(obj));
+  };
+
+  const addProducts = () => {
+    dispatch(addNewProducts());
   };
 
   return (
@@ -47,7 +54,7 @@ export const Main = ({ filterName }) => {
             )}
           </div>
         )}
-        <button>Показать больше товаров</button>
+        <button onClick={addProducts}>Показать больше товаров</button>
       </div>
     </div>
   );

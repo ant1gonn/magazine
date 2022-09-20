@@ -20,8 +20,9 @@ export const Header = ({ value, setValue, filterName }) => {
           <img src={MapIMG} />
           <span>Александровск-Са...</span>
         </div>
-        <div>
+        <div className="header__search">
           <input
+            className="header_inp"
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder="Поиск бренда, товара, категории..."

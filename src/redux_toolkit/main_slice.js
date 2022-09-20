@@ -12,7 +12,7 @@ export const fetchProducts = createAsyncThunk(
   "main/fetchProducts",
   async () => {
     const response = await axios.get(
-      `https://629ef7298b939d3dc28b2d3b.mockapi.io/magazine`
+      `https://629ef7298b939d3dc28b2d3b.mockapi.io/magazine?page=1&limit=10`
     );
     return response.data;
   }
@@ -48,7 +48,7 @@ const mainSlice = createSlice({
   },
 });
 
-export const { setProducts, setTotalPrice } = mainSlice.actions;
+export const { setProducts, setTotalPrice, addNewProducts } = mainSlice.actions;
 
 export default mainSlice.reducer;
 

@@ -1,18 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export const OrderPrices = () => {
+  const { totalPrice } = useSelector(({ basket }) => basket);
+
   return (
-    <div>
-      <div>
-        Стоимость товаров:<span>5476price</span>
+    <div className="order__prices">
+      <div className="order__prices-inner">
+        <div>
+          <span>Стоимость товаров:{totalPrice} р</span>
+        </div>
+        <div>
+          <span>Стоимость доставки: 0 р</span>
+        </div>
+        <div>
+          <span>Итого:</span>
+          <strong>{totalPrice} р</strong>
+        </div>
       </div>
-      <div>
-        Стоимость доставки:<span>547345436price</span>
-      </div>
-      <div>
-        Итого:<h1>547345436price</h1>
-      </div>
-      <button>Сделать заказ</button>
+      <button className="my_btn">Сделать заказ</button>
     </div>
   );
 };
