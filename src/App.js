@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { Main } from "./components/Mian/Main";
+import { Basket } from "./components/Basket/Basket";
+import { History } from "./components/History/History";
+import { useSelector } from "react-redux";
+import { Order } from "./components/Order/Order";
 
-function App() {
+const App = () => {
+  const [value, setValue] = React.useState("");
+  const { items } = useSelector(({ main }) => main);
+
+  const filterName = items.filter((item) => {
+    return item.name.toLowerCase().includes(value.toLowerCase());
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header value={value} setValue={setValue} />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Main filterName={filterName} />} />
+          <Route path="/basket" element={<Basket />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
