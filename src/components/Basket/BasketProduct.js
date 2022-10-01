@@ -10,7 +10,7 @@ import {
 export const BasketProduct = ({ id, name, image, price, prevPrice, count }) => {
   const dispatch = useDispatch();
 
-  const daleteProduct = (id) => {
+  const deleteProduct = (id) => {
     window.confirm("вы действительно хотите удалить товар?") &&
       dispatch(deleteBasketProduct(id));
   };
@@ -33,7 +33,7 @@ export const BasketProduct = ({ id, name, image, price, prevPrice, count }) => {
       <button onClick={onClickPlus}>+</button>
       <div>{price}</div>
       <div>{prevPrice}</div>
-      <button onClick={daleteProduct}>delete</button>
+      <button onClick={() => deleteProduct(id)}>delete</button>
       <img />
     </div>
   );

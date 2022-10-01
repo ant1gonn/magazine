@@ -7,7 +7,7 @@ import LogoIMG from "./../images/React.png";
 import { BannerAd } from "./Banner/BannerAd";
 import { Link } from "react-router-dom";
 
-export const Header = ({ value, setValue, filterName }) => {
+export const Header = ({ value, setValue, onClickSearch }) => {
   return (
     <div className="header">
       <div className="header_inner">
@@ -27,7 +27,11 @@ export const Header = ({ value, setValue, filterName }) => {
             onChange={(e) => setValue(e.target.value)}
             placeholder="Поиск бренда, товара, категории..."
           />
-          <img onClick={() => filterName()} src={SearchIMG} />
+          <img
+            style={{ cursor: "pointer" }}
+            onClick={onClickSearch}
+            src={SearchIMG}
+          />
         </div>
         <Link to="/basket">
           <img src={BasketIMG} />

@@ -14,16 +14,20 @@ const App = () => {
 
   const itemArray = Array.from(items);
 
-  const filterName = itemArray.filter((item) => {
-    return item.name.toLowerCase().includes(value.toLowerCase());
-  });
+  // const filterName =
+
+  const onClickSearch = () => {
+    return itemArray.filter((item) => {
+      return item.name.toLowerCase().includes(value.toLowerCase());
+    });
+  };
 
   return (
     <div>
-      <Header value={value} setValue={setValue} />
+      <Header value={value} setValue={setValue} onClickSearch={onClickSearch} />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Main filterName={filterName} />} />
+          <Route path="/" element={<Main itemArray={itemArray} />} />
           <Route path="/basket" element={<Basket />} />
           <Route path="/order" element={<Order />} />
         </Routes>

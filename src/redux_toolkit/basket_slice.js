@@ -22,7 +22,7 @@ const basketSlice = createSlice({
       state.totalPrice = getTotalPrice(state.items);
     },
     deleteBasketProduct(state, action) {
-      state.items = state.items.filter((item) => item.id != action.payload.id);
+      state.items = state.items.filter((item) => item.id !== action.payload.id);
     },
     clearBasket(state) {
       state.items = [];

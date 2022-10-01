@@ -8,7 +8,7 @@ import {
 } from "./../../redux_toolkit/main_slice";
 import { addBasketProduct } from "../../redux_toolkit/basket_slice";
 
-export const Main = ({ filterName }) => {
+export const Main = () => {
   const { items, status } = useSelector(({ main }) => main);
   const dispatch = useDispatch();
 
@@ -41,7 +41,7 @@ export const Main = ({ filterName }) => {
               <div>loading...</div>
             ) : (
               <div className="main_products">
-                {filterName.map((item) => {
+                {items.map((item) => {
                   return (
                     <MainProduct
                       addBasket={addBasket}
