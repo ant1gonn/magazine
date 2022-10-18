@@ -7,10 +7,18 @@ import {
   addNewProducts,
 } from "./../../redux_toolkit/main_slice";
 import { addBasketProduct } from "../../redux_toolkit/basket_slice";
+import axios from "axios";
 
 export const Main = () => {
+  const [newProducts, setNewProducts] = React.useState([]);
   const { items, status } = useSelector(({ main }) => main);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    axios
+      .get(`https://629ef7298b939d3dc28b2d3b.mockapi.io/magazine?page=1`)
+      .then((res) => setNewProducts(res.data));
+  }, [newProducts]);
 
   React.useEffect(() => {
     dispatch(fetchProducts());
@@ -21,7 +29,7 @@ export const Main = () => {
   };
 
   const addProducts = () => {
-    dispatch(addNewProducts());
+    return items.push({ ...newProducts });
   };
 
   return (

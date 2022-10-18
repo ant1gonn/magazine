@@ -33,7 +33,7 @@ export const BasketProduct = ({ id, name, image, price, prevPrice, count }) => {
       <button onClick={onClickPlus}>+</button>
       <div>{price}</div>
       <div>{prevPrice}</div>
-      <button onClick={() => deleteProduct(id)}>delete</button>
+      <button onClick={() => deleteProduct({ id })}>delete</button>
       <img />
     </div>
   );

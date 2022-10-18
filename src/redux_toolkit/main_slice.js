@@ -18,6 +18,8 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+console.log(fetchProducts);
+
 const mainSlice = createSlice({
   name: "main",
   initialState,
@@ -26,7 +28,7 @@ const mainSlice = createSlice({
       state.totalPrice = action.payload;
     },
     addNewProducts(state, action) {
-      state.items = action.payload;
+      state.items.push(...action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -36,7 +38,6 @@ const mainSlice = createSlice({
     });
 
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      console.log("slice");
       state.items = action.payload;
       state.status = "success";
     });
